@@ -55,10 +55,13 @@
             <label for="bl">BILL OF LADING</label>
           </div>
         </div>
-      
-        <button type="submit" class="btn-enviar">ENVIAR</button>
+        <button type="submit" class="btn-enviar">SEND</button>
       </form>
     </div>
+  </div>
+
+  <div v-if="formulario === true" class="footer">
+    <h4>PRESS CTRL +M TO CREATE A NEW QUOTATION</h4>
   </div>
 </div>
 </template>
@@ -165,9 +168,10 @@ export default {
     font-size: 1.1rem;
 }
 
-/* container da imagem do botão */
+/* container da imagem e do botão */
 .container {
   display: flex;
+  flex-direction: row;
   justify-content: center; 
   align-items: center; 
   height: 100vh;
@@ -202,8 +206,9 @@ export default {
   transform: translateX(-50%); 
   max-width: 30rem;
   height: 15rem;
-  background-color: #05203b;
+  background-color: #00182f;
   border-radius: 2rem;
+  box-shadow: 0px 10px 40px #00000056;
 }
 
 .formulario { /* formulario em si */
@@ -220,9 +225,9 @@ export default {
   justify-content: space-between; 
   width: 95%;
   max-width: 600px;
-  margin-top: 1.5rem;
+  margin-top: 2.3rem;
   margin-left: 0.7rem;  
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .input-group input {
@@ -231,6 +236,7 @@ export default {
   margin: 0 10px;
   border-radius: 7px;
   font-size: 12px;
+  background: #ddd9da;
 }
 
 .input-group img {
@@ -241,7 +247,7 @@ export default {
   display: flex;  
   width: 87%;
   margin-left: 0.7rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .input-group2 input {
@@ -250,6 +256,7 @@ export default {
   margin: 0 10px;
   border-radius: 5px;
   font-size: 12px;
+  background: #ddd9da;
 }
 
 .formulario input[type="radio"] {
@@ -290,6 +297,7 @@ export default {
   margin: 0 5px;
   border-radius: 5px;
   font-size: 13px;
+  background: #ddd9da;
 
 }
 
@@ -300,7 +308,7 @@ export default {
 .cot-maritima {
   margin: 0 1.1rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
 }
 
 .cot-maritima label {
@@ -314,30 +322,46 @@ export default {
   margin: 0 5px;
   border-radius: 5px;
   font-size: 13px;
+  background: #ddd9da;
 
 }
 
 .cot-maritima #bl {
-  margin-left: 0.7rem;
+  margin-left: 0.2rem;
 }
 
 .btn-enviar {
-  margin-left: 12.5rem;
+  margin-left: 12rem;
   background-color: var(--secondary-color);
   cursor: pointer;
   border: none;
-  padding: 8px 8px;
+  padding: 6px 6px;
   border-radius: 0.3rem;
   color: var(--terciary-color);
   font-weight: 700;
   text-align: center;
-  width: 5rem;
-  height: 2rem;
+  width: 6rem;
+  height: 1.8rem;
+  letter-spacing: 2px;
 }
 
 .btn-enviar:hover {
   background-color: var(--terciary-color);
   color: var(--secondary-color);
+}
+
+.footer {
+  display: flex; 
+  position: absolute;
+  top: 24rem;  
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ddd9da;
+}
+
+.footer h4 {
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 
 </style>
