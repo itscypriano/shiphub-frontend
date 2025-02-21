@@ -260,7 +260,7 @@ export default {
 }
 
 .formulario label {
-  font-size: 14px;/* Garante que o texto da label fique alinhado com o input */
+  font-size: 14px;
   display: inline-flex;
   align-items: center;
   margin-left: 0.3rem;
