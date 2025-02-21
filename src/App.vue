@@ -34,31 +34,29 @@
         </div>
 
         <div class="input-group2">
-          <input type="number" id="transittime" v-model="transittime" placeholder="Transit time" required />
+          <input type="number" id="transittime" v-model="transittime" placeholder="Transit time (days)" required />
           <input v-mask="'##/##/####'" id="expirationdate" v-model="expirationdate" placeholder="dd/mm/aaaa" required /><br>
-          <label><input type="radio" v-model="cotacao" value="aerea"> Aérea</label>
-          <label><input type="radio" v-model="cotacao" value="maritima"> Marítima</label>
+          <label><input type="radio" v-model="cotacao" value="aerea"> AIR</label>
+          <label><input type="radio" v-model="cotacao" value="maritima"> SEA</label>
         </div>
 
           <!-- se a cotação for aérea -->
-        <div v-if="cotacao === 'aerea'">
-          <label for="peso">Peso Taxado:</label>
-          <input type="number" id="peso" v-model="pesoTaxado" placeholder="Informe o peso (Kg)">
-          <input type="checkbox" id="billlading" v-model="billlading">
-          <label for="billlading">Bill lading</label>
+        <div v-if="cotacao === 'aerea'" class="cot-aerea">
+          <input type="number" id="taxedWeight" v-model="taxedWeight" placeholder="Taxed weight (Kg)">
+          <input type="checkbox" id="awb" v-model="awb">
+          <label for="awb">AIR WAY BILL</label>
         </div>
 
           <!-- se a cotação for marítima -->
-        <div v-if="cotacao === 'maritima'">
+        <div v-if="cotacao === 'maritima'" class="cot-maritima">
           <div class="radio">
-            <label for="m3">M³:</label>
-            <input type="number" id="m3" v-model="m3" placeholder="Informe o volume em metros cúbicos">
-            <input type="checkbox" id="billlading" v-model="billlading">
-            <label for="billlading">Bill lading</label>
+            <input type="number" id="cbm" v-model="cbm" placeholder="CBM (m³)">
+            <input type="checkbox" id="bl" v-model="bl">
+            <label for="bl">BILL OF LADING</label>
           </div>
         </div>
       
-        <br><button type="submit">Enviar</button>
+        <button type="submit" class="btn-enviar">ENVIAR</button>
       </form>
     </div>
   </div>
@@ -203,7 +201,9 @@ export default {
   left: 50%;
   transform: translateX(-50%); 
   max-width: 30rem;
-  background-color: red;
+  height: 15rem;
+  background-color: #041627;
+  border-radius: 2rem;
 }
 
 .formulario { /* formulario em si */
@@ -220,16 +220,15 @@ export default {
   justify-content: space-between; 
   width: 95%;
   max-width: 600px;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-left: 0.7rem;  
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-group input {
   width: 30%;
   padding: 6px;
   margin: 0 10px;
-  border: 1px solid #ccc;
   border-radius: 7px;
   font-size: 12px;
 }
@@ -240,15 +239,15 @@ export default {
 
 .input-group2 {
   display: flex;  
-  width: 82%;
+  width: 87%;
   margin-left: 0.7rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-group2 input {
   width: 48%;
   padding: 6px;
   margin: 0 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 12px;
 }
@@ -261,16 +260,84 @@ export default {
 }
 
 .formulario label {
-  font-size: 12px;/* Garante que o texto da label fique alinhado com o input */
+  font-size: 14px;/* Garante que o texto da label fique alinhado com o input */
   display: inline-flex;
   align-items: center;
   margin-left: 0.3rem;
+  margin-right: 0.2rem;
+  font-weight: 600;
 }
 
 .radio {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.cot-aerea {
+  margin: 0 1.1rem;
+  font-weight: 600;
+}
+
+.cot-aerea label {
+  font-size: 13px;
+  margin-bottom: 1.5rem;
+}
+
+.cot-aerea #taxedWeight {
+  width: 25%;
+  padding: 6px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 13px;
+
+}
+
+.cot-aerea #awb {
+  margin-left: 0.7rem;
+}
+
+.cot-maritima {
+  margin: 0 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.cot-maritima label {
+  font-size: 13px;
+  margin-left: 0;
+}
+
+.cot-maritima #cbm {
+  width: 25%;
+  padding: 6px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 13px;
+
+}
+
+.cot-maritima #bl {
+  margin-left: 0.7rem;
+}
+
+.btn-enviar {
+  margin-left: 12.5rem;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  border: none;
+  padding: 8px 8px;
+  border-radius: 0.3rem;
+  color: var(--terciary-color);
+  font-weight: 700;
+  text-align: center;
+  width: 5rem;
+  height: 2rem;
+}
+
+.btn-enviar:hover {
+  background-color: var(--terciary-color);
+  color: var(--secondary-color);
 }
 
 </style>
