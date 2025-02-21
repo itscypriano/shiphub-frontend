@@ -202,7 +202,7 @@ export default {
   transform: translateX(-50%); 
   max-width: 30rem;
   height: 15rem;
-  background-color: #041627;
+  background-color: #05203b;
   border-radius: 2rem;
 }
 
