@@ -165,7 +165,7 @@ export default {
     font-size: 1.1rem;
 }
 
-/* container da imagem e do botão */
+/* container da imagem do botão */
 .container {
   display: flex;
   justify-content: center; 
